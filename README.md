@@ -1,4 +1,8 @@
 # expected
+
+> This fork modify `CMakeLists.txt` for my own need to make it more suitable for integration with CPM.cmake. I also added github action ci, so I can check I don't break anything.
+> I would gladly contribute back, everything should be easy to cherry pick, but tl::expected seems to be unmaintained.
+
 Single header implementation of `std::expected` with functional-style extensions.
 
 [![Documentation Status](https://readthedocs.org/projects/tl-docs/badge/?version=latest)](https://tl.tartanllama.xyz/en/latest/?badge=latest)
