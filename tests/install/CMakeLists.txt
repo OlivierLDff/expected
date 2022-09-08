@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.14)
+project(tl-expected-find-package LANGUAGES CXX)
+find_package(tl-expected REQUIRED)
+add_executable(tl-expected-find-package main.cpp)
+target_link_libraries(tl-expected-find-package PRIVATE tl::expected)
+target_compile_features(tl-expected-find-package PUBLIC cxx_std_17)

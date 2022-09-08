@@ -29,3 +29,14 @@ jobs:
       -
         name: 📦️ install
         run: cmake --build build --config "${{ matrix.build-type }}" --target install
+      -
+        name: 🔧 Test find_package
+        run: |
+          cmake -E make_directory build-install
+          cmake -DCMAKE_BUILD_TYPE="${{ matrix.build-type }}"   \
+                -DCMAKE_PREFIX_PATH=$(pwd)/build/output        \
+                -B build-install -S ./tests/install
+        shell: bash
+      -
+        name: 🔨 Build find_package test
+        run: cmake --build build-install --config "${{ matrix.build-type }}" --target "tl-expected-find-package" -j
