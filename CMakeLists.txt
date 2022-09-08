@@ -11,10 +11,6 @@ include(GNUInstallDirs)
 include(FetchContent)
 include(CTest)
 
-if (NOT DEFINED CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
-endif()
-
 option(EXPECTED_BUILD_PACKAGE "Build package files as well" ON)
 
 cmake_dependent_option(EXPECTED_BUILD_TESTS
@@ -30,6 +26,7 @@ target_include_directories(expected
   INTERFACE
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
+target_compile_features(expected INTERFACE cxx_std_14)
 
 if (NOT CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
   add_library(tl::expected ALIAS expected)
