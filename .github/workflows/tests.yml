@@ -18,6 +18,7 @@ jobs:
           cmake -E make_directory build
           cmake -DCMAKE_BUILD_TYPE="${{ matrix.build-type }}"   \
                 -DCMAKE_INSTALL_PREFIX=build/output             \
+                -DBUILD_TESTING=ON                              \
                 -B build -S .
         shell: bash
       -
