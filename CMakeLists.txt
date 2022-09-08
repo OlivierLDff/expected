@@ -83,7 +83,7 @@ if(EXPECTED_BUILD_TESTS)
 
   file(GLOB test-sources CONFIGURE_DEPENDS tests/*.cpp)
   list(FILTER test-sources EXCLUDE REGEX "tests/test.cpp")
-  add_executable(${PROJECT_NAME}-tests "${test-sources}")
+  add_executable(${PROJECT_NAME}-tests EXCLUDE_FROM_ALL "${test-sources}")
   target_compile_options(${PROJECT_NAME}-tests PRIVATE
     $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra>)
 
