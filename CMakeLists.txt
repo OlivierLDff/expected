@@ -18,11 +18,11 @@ endif()
 option(EXPECTED_BUILD_PACKAGE "Build package files as well" ON)
 
 cmake_dependent_option(EXPECTED_BUILD_TESTS
-  "Enable tl::expected tests" ON
+  "Enable tl::expected tests" ${PROJECT_IS_TOP_LEVEL}
   "BUILD_TESTING" OFF)
 
 cmake_dependent_option(EXPECTED_BUILD_PACKAGE_DEB
-  "Create a DEB" ON
+  "Create a DEB" ${PROJECT_IS_TOP_LEVEL}
   "EXPECTED_BUILD_PACKAGE" OFF)
 
 add_library(expected INTERFACE)
